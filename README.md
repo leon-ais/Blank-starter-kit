@@ -9,7 +9,7 @@ This is a blank C++ project template using CMake as the build system and integra
 -   **CMake Build System**: Configured for easy project setup and compilation.
 -   **Google Test Integration**: Ready-to-use unit testing framework.
 -   **.gitignore**: Pre-configured to ignore build artifacts and downloaded dependencies (`build/` and `lib/` directories).
--   **`build_and_test.sh` Script**: A convenient script for building, testing, and cleaning the project.
+-   **`scripts/build.sh` Script**: A convenient script for building, testing, and cleaning the project.
 
 ## Prerequisites
 
@@ -32,14 +32,14 @@ Follow these steps to get your project up and running:
 
 2.  **Build and Test**:
 
-    Use the provided `build_and_test.sh` script to build and run tests.
+    Use the provided `scripts/build.sh` script to build and run tests.
 
     -   **Normal Build and Test**:
 
         If the `build` directory does not exist, it will be created. If it exists and is not empty, it will be cleaned before rebuilding.
 
         ```bash
-        ./build_and_test.sh
+        ./scripts/build.sh
         ```
 
     -   **Clean Build Directory Only**:
@@ -47,7 +47,7 @@ Follow these steps to get your project up and running:
         This option will only delete the `build` directory if it exists, without performing a build or test.
 
         ```bash
-        ./build_and_test.sh --clean
+        ./scripts/build.sh --clean
         ```
 
 ## Project Structure

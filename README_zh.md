@@ -7,7 +7,7 @@
 -   **CMake 构建系统**：配置简单，易于项目设置和编译。
 -   **Google Test 集成**：开箱即用的单元测试框架。
 -   **.gitignore**：预配置忽略构建产物和下载的依赖项（`build/` 和 `lib/` 目录）。
--   **`build_and_test.sh` 脚本**：一个方便的脚本，用于构建、测试和清理项目。
+-   **`scripts/build.sh` 脚本**：一个方便的脚本，用于构建、测试和清理项目。
 
 ## 准备工作
 
@@ -30,14 +30,14 @@
 
 2.  **构建和测试**：
 
-    使用提供的 `build_and_test.sh` 脚本进行构建和运行测试。
+    使用提供的 `scripts/build.sh` 脚本进行构建和运行测试。
 
     -   **正常构建和测试**：
 
         如果 `build` 目录不存在，它将被创建。如果它存在且不为空，它将在重新构建之前被清理。
 
         ```bash
-        ./build_and_test.sh
+        ./scripts/build.sh
         ```
 
     -   **仅清理构建目录**：
@@ -45,7 +45,7 @@
         此选项将仅删除 `build` 目录（如果存在），而不执行构建或测试。
 
         ```bash
-        ./build_and_test.sh --clean
+        ./scripts/build.sh --clean
         ```
 
 ## 项目结构
