@@ -1,3 +1,5 @@
+[中文版 README](README_zh.md)
+
 # Blank-starter-kit
 
 This is a blank C++ project template using CMake as the build system and integrated with Google Test for unit testing.
