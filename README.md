@@ -2,21 +2,23 @@
 
 # Blank-starter-kit
 
-This is a blank C++ project template using CMake as the build system and integrated with Google Test for unit testing.
+A modern C++ project template for algorithm solutions and coding practice, featuring separate compilation of source and test directories.
 
 ## Features
 
--   **CMake Build System**: Configured for easy project setup and compilation.
--   **Google Test Integration**: Ready-to-use unit testing framework.
--   **.gitignore**: Pre-configured to ignore build artifacts and downloaded dependencies (`build/` and `lib/` directories).
--   **`scripts/build.sh` Script**: A convenient script for building, testing, and cleaning the project.
+-   **Modular Architecture**: Separate `src/` and `test/` directories for clean organization
+-   **CMake Build System**: Advanced configuration with subdirectory support
+-   **Google Test Integration**: Comprehensive unit testing framework
+-   **Separate Compilation**: Build source and test components independently
+-   **Flexible Scripts**: Multiple build scripts for different development workflows
+-   **Template Ready**: Easy to extend with new algorithm solutions
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
 -   **CMake**: Version 3.10 or higher.
--   **C++ Compiler**: A C++11 compatible compiler (e.g., GCC, Clang, MSVC).
+-   **C++ Compiler**: A C++17 compatible compiler (e.g., GCC, Clang, MSVC).
 -   **Git**: For version control.
 
 ## Getting Started
@@ -32,29 +34,50 @@ Follow these steps to get your project up and running:
 
 2.  **Build and Test**:
 
-    Use the provided `scripts/build.sh` script to build and run tests.
+    Choose from multiple build approaches:
 
-    -   **Normal Build and Test**:
-
-        If the `build` directory does not exist, it will be created. If it exists and is not empty, it will be cleaned before rebuilding.
+    -   **Full Build (Traditional)**:
 
         ```bash
-        ./scripts/build.sh
+        ./build.sh
         ```
 
-    -   **Clean Build Directory Only**:
-
-        This option will only delete the `build` directory if it exists, without performing a build or test.
+    -   **Separate Compilation (Recommended)**:
 
         ```bash
-        ./scripts/build.sh --clean
+        # Build only source code
+        ./build_separate.sh src
+
+        # Build only tests
+        ./build_separate.sh test
+
+        # Build everything
+        ./build_separate.sh all
+
+        # Clean build files
+        ./build_separate.sh clean
         ```
 
 ## Project Structure
 
--   `CMakeLists.txt`: Main CMake configuration file.
--   `build_and_test.sh`: Script for building, testing, and cleaning.
--   `include/`: Contains public header files.
--   `src/`: Contains source code files.
--   `test/`: Contains unit tests using Google Test.
--   `lib/`: Contains downloaded Google Test source and build files (ignored by Git).
+```
+SolutionTemplate/
+├── CMakeLists.txt          # Main CMake configuration
+├── build.sh                # Traditional full build script
+├── build_separate.sh       # Separate compilation script (recommended)
+├── BUILD_GUIDE.md          # Detailed build instructions
+├── include/
+│   └── solution.h          # Main solution class header
+├── src/
+│   ├── CMakeLists.txt      # Source directory configuration
+│   └── solution.cpp        # Implementation file
+├── test/
+│   ├── CMakeLists.txt      # Test directory configuration
+│   └── solution_test.cpp   # Unit tests
+├── build/                  # Build output directory
+│   ├── bin/
+│   │   └── solution_test   # Test executable
+│   └── lib/
+│       └── libsolution.a   # Solution library
+└── lib/                    # Google Test dependencies
+```
